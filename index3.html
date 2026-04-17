@@ -1,0 +1,2192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Federal Contractors LLC - Government IT, Cybersecurity & Professional Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0066CC;
+            --dark-blue: #004499;
+            --accent-orange: #E8913A;
+            --dark-bg: #1a1a2e;
+            --text-dark: #1a1a2e;
+            --text-light: #666;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --border-gray: #e0e0e0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background: var(--light-gray);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-gray);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-blue);
+            border-radius: 5px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-10deg) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0) scale(1);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            animation: fadeInLeft 0.8s ease;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 35%;
+            height: 35%;
+            border: 2px solid rgba(255,255,255,0.6);
+            border-radius: 50%;
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text span:first-child {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span:last-child {
+            font-size: 0.75rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--primary-blue);
+            color: white !important;
+            padding: 0.75rem 1.5rem !important;
+            border-radius: 50px;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 78px;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            display: none;
+            flex-direction: column;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            padding: 1rem 2rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(0, 102, 204, 0.06);
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.05), rgba(0, 68, 153, 0.1));
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: fadeInLeft 1s ease;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-badge span {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .hero h1 span {
+            color: var(--primary-blue);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: rgba(0, 102, 204, 0.2);
+            z-index: -1;
+            transform: skewX(-10deg);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+
+        .hero-contact {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            padding: 1rem 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            width: fit-content;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-contact:hover {
+            transform: translateX(10px);
+        }
+
+        .hero-contact-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--accent-orange), #d4802f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .hero-contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-contact-info span:first-child {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-contact-info span:last-child {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--text-dark);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--border-gray);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        .hero-images {
+            position: relative;
+            animation: fadeInRight 1s ease;
+        }
+
+        .hero-image-main {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image-main:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-image-float {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            border: 4px solid white;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-image-float.img-1 {
+            bottom: -30px;
+            left: -40px;
+            animation-delay: 0s;
+        }
+
+        .hero-image-float.img-2 {
+            top: 40px;
+            right: -30px;
+            width: 150px;
+            height: 150px;
+            animation-delay: 1s;
+        }
+
+        .stats-bar {
+            position: relative;
+            bottom: auto;
+            left: auto;
+            transform: none;
+            background: white;
+            padding: 2rem 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 4rem;
+            z-index: 10;
+            margin-top: 3rem;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 40px;
+            width: 1px;
+            background: var(--border-gray);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Why Choose Us Section */
+        .why-us {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(0, 102, 204, 0.1);
+            color: var(--primary-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid var(--border-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-orange));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: transparent;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.1), rgba(232, 145, 58, 0.1));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
+            color: white;
+            transform: rotateY(360deg);
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #16213e 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .services .section-title {
+            color: white;
+        }
+
+        .services-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .services-text h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .services-text p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .services-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .services-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .services-list li::before {
+            content: '✓';
+            width: 24px;
+            height: 24px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .services-image {
+            position: relative;
+        }
+
+        .services-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .services-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: white;
+            color: var(--text-dark);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .services-badge-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: block;
+        }
+
+        .services-badge-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Process Section */
+        .process {
+            padding: 6rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .process-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .process-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+        }
+
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.1), rgba(232, 145, 58, 0.1));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .process-card:hover .process-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
+            color: white;
+        }
+
+        .process-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .process-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .process-connector {
+            position: absolute;
+            top: 50%;
+            right: -2rem;
+            width: 2rem;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-orange));
+            display: none;
+        }
+
+        /* Clients Section */
+        .clients {
+            padding: 4rem 2rem;
+            background: white;
+            overflow: hidden;
+        }
+
+        .clients-scroll {
+            display: flex;
+            gap: 4rem;
+            animation: scroll 30s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .client-logo {
+            flex-shrink: 0;
+            height: 40px;
+            opacity: 0.5;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .client-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .cta-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .cta-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-contact-box {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .cta-contact-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+        }
+
+        .cta-contact-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cta-contact-text span:first-child {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .cta-contact-text span:last-child {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .cta-image {
+            position: relative;
+        }
+
+        .cta-image img {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            display: block;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: 30px;
+            right: -20px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .about-content > p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .about-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--light-gray);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .about-features li:hover {
+            background: rgba(0, 102, 204, 0.1);
+            transform: translateX(10px);
+        }
+
+        .about-features li::before {
+            content: '→';
+            width: 24px;
+            height: 24px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .about-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-card p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 6rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 5rem;
+            color: var(--primary-blue);
+            opacity: 0.1;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-blue);
+        }
+
+        .testimonial-info h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .testimonial-stars {
+            color: var(--accent-orange);
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            transition: gap 0.3s ease;
+        }
+
+        .testimonial-link:hover {
+            gap: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        .footer-logo-text {
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        .footer-certifications {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .cert-badge {
+            height: 50px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .cert-badge:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .features-grid,
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .hero-container,
+            .services-content,
+            .cta-container,
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .hero {
+                padding-top: 100px;
+            }
+            
+            .hero-image-float {
+                display: none;
+            }
+            
+            .stats-bar {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin-top: 3rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .stat-item:not(:last-child)::after {
+                display: none;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid,
+            .process-grid,
+            .about-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .hero-container,
+            .services-content,
+            .cta-container,
+            .about-grid {
+                padding: 0 1.5rem;
+            }
+
+            .hero-image-main {
+                height: auto;
+            }
+
+            .hero-contact,
+            .hero-buttons {
+                width: 100%;
+            }
+
+            .stats-bar {
+                width: 100%;
+                margin-top: 2rem !important;
+                margin-bottom: 2rem !important;
+                justify-content: center;
+                padding: 1.5rem 1rem !important;
+                gap: 1.5rem !important;
+            }
+
+            .stat-item {
+                flex: 0 1 auto;
+            }
+
+            .about {
+                padding: 4rem 1.5rem;
+            }
+
+            .mobile-menu {
+                top: 72px;
+            }
+        }
+
+        /* Loading Animation */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--light-gray);
+            border-top-color: var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Parallax Effect */
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.03), rgba(232, 145, 58, 0.03));
+            transform: translateY(0);
+            will-change: transform;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">PFC</div>
+                <div class="logo-text">
+                    <span>Prime Federal</span>
+                    <span>Contractors</span>
+                </div>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+            </ul>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact Us</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="parallax-bg"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span></span>
+                    SDVOSB Certified • MBE
+                </div>
+                
+                <h1>Government IT, Cybersecurity & <span>Professional Services</span></h1>
+                <p class="hero-subtitle">Prime Federal Contractors LLC delivers secure IT solutions, cybersecurity expertise, and comprehensive professional services for federal, state, and local agencies. SDVOSB-certified. Military-founded. Government-ready.</p>
+                
+                <div class="hero-contact">
+                    <div class="hero-contact-icon">📞</div>
+                    <div class="hero-contact-info">
+                        <span>Contact Now</span>
+                        <span>720-490-0842</span>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="#services" class="btn-primary">
+                        View Our Services
+                        <span>→</span>
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        Request Proposal
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-images">
+                <img src="https://kimi-web-img.moonshot.cn/img/media.gettyimages.com/a5452a8aac015f17d79ad45530785fe52f5d0e02.jpg" alt="Professional Businessman" class="hero-image-main">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.shutterstock.com/cc6e81b4f0f089b2ae51ffe5d86d80a69b7448c0.jpg" alt="Business Professional" class="hero-image-float img-1">
+                <img src="https://kimi-web-img.moonshot.cn/img/images.presentationgo.com/0dafd0a6e689b8f0cea927174a0efa74ff1b29fe.jpg" alt="Business Handshake" class="hero-image-float img-2">
+            </div>
+        <div class="stats-bar animate-on-scroll">
+            <div class="stat-item">
+                <span class="stat-number" data-count="7">0</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="50">0</span>
+                <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="87">0</span>
+                <span class="stat-label">% Satisfaction</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="20">0</span>
+                <span class="stat-label">Expert Staff</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us" id="why-us">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Why Choose Us</span>
+                <h2 class="section-title">Why Prime Federal Contractors LLC?</h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll delay-1">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Cybersecurity Expertise</h3>
+                    <p>RMF, NIST, FISMA compliance with 7+ years infrastructure security experience</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll delay-2">
+                    <div class="feature-icon">✓</div>
+                    <h3>Government Certified</h3>
+                    <p>SDVOSB and MBE certifications with proven federal contracting experience</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll delay-3">
+                    <div class="feature-icon">👥</div>
+                    <h3>Veteran-Founded</h3>
+                    <p>Military veteran leadership bringing discipline, integrity, and reliable service</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll delay-4">
+                    <div class="feature-icon">🎖️</div>
+                    <h3>Full-Service Capability</h3>
+                    <p>IT, cybersecurity, professional services, and facility support in one partner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag" style="background: rgba(255,255,255,0.15); color: white;">Our Service Areas</span>
+                <h2 class="section-title">Comprehensive Government Contracting Solutions</h2>
+            </div>
+            
+            <div class="services-content">
+                <div class="services-text animate-on-scroll">
+                    <h3>Secure IT, Cybersecurity & Professional Services</h3>
+                    <p>Prime Federal Contractors LLC specializes in mission-critical IT and cybersecurity solutions for government agencies. From infrastructure security to compliance management, we deliver the expertise your agency needs.</p>
+                    
+                    <ul class="services-list">
+                        <li>Cybersecurity & Information Assurance (RMF, NIST, FISMA)</li>
+                        <li>Network Infrastructure & System Administration</li>
+                        <li>Cloud Security & System Hardening</li>
+                        <li>Risk Management, Compliance & GRC</li>
+                        <li>Facility Support & Administrative Services</li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn-primary">
+                        Request Capability Statement
+                        <span>→</span>
+                    </a>
+                </div>
+                
+                <div class="services-image animate-on-scroll delay-2">
+                    <img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/88ddb6d24f4e338ff47b2ba1691621284d2014a4.jpg" alt="Business Team Meeting">
+                    <div class="services-badge">
+                        <span class="services-badge-number">7+</span>
+                        <span class="services-badge-text">Years Cybersecurity</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Our Process</span>
+                <h2 class="section-title">Government Contracting Process</h2>
+                <p style="color: var(--text-light); margin-top: 1rem;">From Proposal to Delivery: Four Steps to Success</p>
+            </div>
+            
+            <div class="process-grid">
+                <div class="process-card animate-on-scroll delay-1">
+                    <div class="process-number">1</div>
+                    <div class="process-icon">📋</div>
+                    <h3>Requirements Analysis</h3>
+                    <p>Comprehensive assessment of your agency's IT, cybersecurity, and support service needs with security compliance focus.</p>
+                </div>
+                
+                <div class="process-card animate-on-scroll delay-2">
+                    <div class="process-number">2</div>
+                    <div class="process-icon">📊</div>
+                    <h3>Security Planning</h3>
+                    <p>Development of RMF-compliant solutions with NIST standards, risk assessments, and compliance roadmaps.</p>
+                </div>
+                
+                <div class="process-card animate-on-scroll delay-3">
+                    <div class="process-number">3</div>
+                    <div class="process-icon">⚙️</div>
+                    <h3>Implementation</h3>
+                    <p>Secure deployment of IT infrastructure, cybersecurity controls, and facility support with government standards.</p>
+                </div>
+                
+                <div class="process-card animate-on-scroll delay-4">
+                    <div class="process-number">4</div>
+                    <div class="process-icon">🔒</div>
+                    <h3>Ongoing Monitoring</h3>
+                    <p>Continuous security monitoring, compliance verification, and proactive support to maintain FISMA standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients">
+        <div class="section-header animate-on-scroll" style="margin-bottom: 2rem;">
+            <p style="color: var(--text-light); font-size: 1.1rem;">We are trusted by thousands of clients</p>
+        </div>
+        
+        <div class="clients-scroll">
+            <div class="client-logo">RENAISSANCE</div>
+            <div class="client-logo">PAUL RUDD PHOTOGRAPHER</div>
+            <div class="client-logo">LIGHTWAVE ART MUSEUM</div>
+            <div class="client-logo">NICK & JOAN</div>
+            <div class="client-logo">LONDON ARCHITECT</div>
+            <div class="client-logo">SKYLIGHT</div>
+            <div class="client-logo">RENAISSANCE</div>
+            <div class="client-logo">PAUL RUDD PHOTOGRAPHER</div>
+            <div class="client-logo">LIGHTWAVE ART MUSEUM</div>
+            <div class="client-logo">NICK & JOAN</div>
+            <div class="client-logo">LONDON ARCHITECT</div>
+            <div class="client-logo">SKYLIGHT</div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="cta-container">
+            <div class="cta-content animate-on-scroll">
+                <h2>Ready to Partner with Prime Federal Contractors?</h2>
+                <p>Get expert government contracting solutions in IT, cybersecurity, and professional services. Contact us today for a capability statement or proposal.</p>
+                
+                <div class="cta-contact-box">
+                    <div class="cta-contact-icon">📞</div>
+                    <div class="cta-contact-text">
+                        <span>Call Now</span>
+                        <span>720-490-0842</span>
+                    </div>
+                </div>
+                
+                <a href="#" class="btn-secondary" style="border-color: white; color: white;">
+                    Schedule a Consultation
+                </a>
+            </div>
+            
+            <div class="cta-image animate-on-scroll delay-2">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.shutterstock.com/952ab422981d2ed0836271ade4af965bebbd3ae9.jpg" alt="Professional with Tablet">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <div class="about-grid">
+                <div class="about-image animate-on-scroll">
+                    <img src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/317ff53a147839f7561ac08988522e4fb01db8f4.jpg" alt="Business Handshake">
+                    <div class="about-badge">
+                        <span style="font-size: 2rem; font-weight: 800; color: var(--primary-blue);">500+</span>
+                        <span style="font-size: 0.9rem; color: var(--text-light);">Happy Clients</span>
+                    </div>
+                </div>
+                
+                <div class="about-content animate-on-scroll delay-2">
+                    <span class="section-tag">About Us</span>
+                    <h3>Founded by Government Cybersecurity Expert</h3>
+                    <p>Prime Federal Contractors LLC was founded by a U.S. military veteran with 7+ years of cybersecurity, infrastructure security, and compliance experience. We bring disciplined, reliable service to every government contract.</p>
+                    
+                    <ul class="about-features">
+                        <li>Military-founded with proven security expertise</li>
+                        <li>SDVOSB & MBE certified for government contracting</li>
+                        <li>RMF, NIST, FISMA compliance specialists</li>
+                        <li>End-to-end IT and facility support services</li>
+                    </ul>
+                    
+                    <div class="about-cards">
+                        <div class="about-card">
+                            <h4>Security First</h4>
+                            <p>Cybersecurity Focus</p>
+                        </div>
+                        <div class="about-card">
+                            <h4>Government Ready</h4>
+                            <p>Certified & Compliant</p>
+                        </div>
+                        <div class="about-card">
+                            <h4>Veteran Founded</h4>
+                            <p>Integrity & Excellence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Capabilities Section -->
+    <section class="certifications" style="padding: 6rem 2rem; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Certifications & Capabilities</span>
+                <h2 class="section-title">Government-Certified & Compliance-Ready</h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <!-- SDVOSB Certificate -->
+                <div class="feature-card animate-on-scroll delay-1">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #0066CC, #004499); color: white; font-size: 2.5rem;">🛡️</div>
+                    <h3>SDVOSB Certified</h3>
+                    <p>Service-Disabled Veteran-Owned Small Business certification enables special contracting opportunities with federal agencies.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 1rem;"><strong>Unique Entity ID:</strong><br>TMLPRZXLVPX8</p>
+                </div>
+                
+                <!-- MBE Certificate -->
+                <div class="feature-card animate-on-scroll delay-2">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #E8913A, #d4802f); color: white; font-size: 2.5rem;">🏅</div>
+                    <h3>MBE Certified</h3>
+                    <p>Minority Business Enterprise certification demonstrates our commitment to diverse contracting and economic opportunity.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 1rem;"><strong>CAGE/NCAGE:</strong><br>19MZ4</p>
+                </div>
+                
+                <!-- Capability Statement -->
+                <div class="feature-card animate-on-scroll delay-3">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #0066CC, #E8913A); color: white; font-size: 2.5rem;">📋</div>
+                    <h3>Capability Statement</h3>
+                    <p>Detailed capability document available describing our IT, cybersecurity, professional services, and facility support capabilities.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 1rem;"><strong>Request yours today:</strong><br><a href="mailto:info@primefederalcontractors.com" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">info@primefederalcontractors.com</a></p>
+                </div>
+            </div>
+            
+            <!-- Compliance Standards -->
+            <div style="background: white; padding: 2.5rem; border-radius: 20px; margin-top: 3rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); animate-on-scroll">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--text-dark);">Compliance Frameworks & Standards</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; text-align: center;">
+                    <div>
+                        <div style="font-size: 1.2rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 0.5rem;">RMF</div>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Risk Management Framework</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 1.2rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 0.5rem;">NIST</div>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Cybersecurity Standards</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 1.2rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 0.5rem;">FISMA</div>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Federal Information Security</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 1.2rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 0.5rem;">ITAR</div>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">International Traffic in Arms</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">Our clients' satisfaction is important to us.</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card animate-on-scroll delay-1">
+                    <div class="testimonial-header">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Director of IT" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Director of IT Operations</h4>
+                            <div class="testimonial-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">Prime Federal Contractors' cybersecurity expertise and FISMA compliance knowledge were instrumental in our infrastructure modernization. Exceptional partner for government IT needs.</p>
+                    <a href="#" class="testimonial-link">Read More →</a>
+                </div>
+                
+                <div class="testimonial-card animate-on-scroll delay-2">
+                    <div class="testimonial-header">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face" alt="Security Manager" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Security Manager</h4>
+                            <div class="testimonial-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">Their RMF and NIST implementation services streamlined our compliance processes significantly. Professional, knowledgeable, and deeply committed to security standards.</p>
+                    <a href="#" class="testimonial-link">Read More →</a>
+                </div>
+                
+                <div class="testimonial-card animate-on-scroll delay-3">
+                    <div class="testimonial-header">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Procurement Officer" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Procurement Officer</h4>
+                            <div class="testimonial-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">As an SDVOSB contractor, Prime Federal Contractors delivers exceptional value and reliability. We've successfully executed multiple contracts with no issues. Highly recommended.</p>
+                    <a href="#" class="testimonial-link">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">PFC</div>
+                    <span class="footer-logo-text">Prime Federal Contractors</span>
+                </div>
+                <p>Government-certified IT, cybersecurity, and professional services contractor. SDVOSB-owned and MBE-certified. Military-founded. Security-focused.</p>
+                <div class="footer-social">
+                    <a href="#">f</a>
+                    <a href="#">in</a>
+                    <a href="#">t</a>
+                    <a href="#">ig</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#process">Process</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Service Areas</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Cybersecurity</a></li>
+                    <li><a href="#">IT Infrastructure</a></li>
+                    <li><a href="#">Professional Services</a></li>
+                    <li><a href="#">Facility Support</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="tel:+17204900842">720-490-0842</a></li>
+                    <li><a href="mailto:info@primefederalcontractors.com">info@primefederalcontractors.com</a></li>
+                    <li><a href="#">Commerce City, Colorado</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Prime Federal Contractors LLC. All rights reserved.</p>
+            <div class="footer-certifications">
+                <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">Certifications:</span>
+                <div style="background: white; padding: 0.5rem; border-radius: 5px; color: var(--primary-blue); font-weight: 700; font-size: 0.75rem;">
+                    SDVOSB • MBE
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('pageLoader').classList.add('hidden');
+            }, 500);
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Animate counters if it's a stat number
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.getAttribute('data-count'));
+                        animateCounter(stat, target);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+
+        // Counter Animation
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    const suffix = target === 87 ? '%' : '+';
+                    element.textContent = target + suffix;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 30);
+        }
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.parallax-bg');
+            if (parallax) {
+                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            const spans = mobileMenuBtn.querySelectorAll('span');
+            
+            if (menuOpen) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                mobileMenu.classList.add('open');
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+                mobileMenu.classList.remove('open');
+            }
+        });
+
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuOpen = false;
+                const spans = mobileMenuBtn.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+        });
+
+        // Add hover effect to cards
+        document.querySelectorAll('.feature-card, .process-card, .testimonial-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
