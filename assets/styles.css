@@ -1051,16 +1051,20 @@
   }
 
   .cert-badge {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: var(--primary-blue);
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 1rem;
       border-radius: 50px;
       font-size: 0.8rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
-      transition: all 0.3s ease;
+      line-height: 1;
+      min-height: 36px;
+      /* Ensures consistent height */
   }
 
   .cert-badge:hover {
