@@ -777,7 +777,12 @@
       justify-content: center;
       margin: 0 auto 1.5rem;
       font-size: 1.8rem;
+      line-height: 1;
       transition: all 0.3s ease;
+  }
+
+  .myicons{
+        font-size: 2rem;
   }
 
   .feature-card:hover .feature-icon {
