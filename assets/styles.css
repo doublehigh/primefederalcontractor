@@ -414,6 +414,7 @@ section.hero#home {
     /* Ensures the section expands to fit content */
     min-height: 100vh;
     height: auto;
+}
 /* Dark overlay for text readability - ONLY this, no other overlays */
 section.hero#home .parallax-bg {
     display: none;
