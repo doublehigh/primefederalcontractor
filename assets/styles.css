@@ -463,13 +463,13 @@ section.hero#home .hero-highlights {
      display: inline-flex;
      align-items: center;
      gap: 0.5rem;
-     background: rgba(255, 255, 255, 0.12);
+     background: var(--primary-blue, #1e24bb);
      backdrop-filter: blur(8px);
      padding: 0.6rem 1.2rem;
      border-radius: 50px;
      margin-bottom: 1.5rem;
      font-size: 0.85rem;
-     color: var(--primary-blue, #1e24bb);
+     color: rgba(255, 255, 255, 0.12);
      font-weight: 600;
      border: 1px solid rgba(255, 255, 255, 0.2);
  }
