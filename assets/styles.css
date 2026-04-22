@@ -407,14 +407,11 @@ section.hero#home {
 section.hero#home {
     background-image: url('./professional_colaboration.png');
     background-size: cover;
-    background-position: center center;
+    background-position: center 30%;
     background-repeat: no-repeat;
     background-attachment: scroll;
-
-    /* Ensures the section expands to fit content */
-    min-height: 100vh;
-    height: auto;
 }
+
 /* Dark overlay for text readability - ONLY this, no other overlays */
 section.hero#home .parallax-bg {
     display: none;
@@ -428,7 +425,7 @@ section.hero#home::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(10, 37, 64, 0.395);
+    background: rgba(10, 37, 64, 0.262);
     z-index: 0;
 }
 
@@ -2286,11 +2283,41 @@ section.hero#home .hero-highlights {
       font-size: 0.94rem;
   }
 
-  
+
+ 
   .home-about {
+    position: relative;
       padding: 5.5rem 2rem;
-      background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
+    background-image: url('./bussiness_colab.jpg');
+        background-size: cover;
+        background-position: center 30%;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+      /* background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%); */
   }
+
+   /* Create overlay using pseudo-element on the section */
+   .home-about::before {
+       content: '';
+       position: absolute;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       background: rgba(10, 37, 64, 0.334);
+       z-index: 0;
+   }
+
+        @media (max-width: 768px) {
+            .home-about::before {
+                    background: rgba(10, 37, 64, 0.48);
+        }
+    }
+   .home-about .home-about-copy,
+   .home-about .home-about-cards {
+       position: relative;
+       z-index: 1;
+   }
 
   .home-about-grid {
       display: grid;
@@ -2300,7 +2327,7 @@ section.hero#home .hero-highlights {
   }
 
   .home-about-copy p {
-      color: var(--text-light);
+      color: var(--white);
       line-height: 1.85;
       margin-bottom: 1rem;
       max-width: 62ch;
