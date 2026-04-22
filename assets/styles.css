@@ -463,15 +463,24 @@ section.hero#home .hero-highlights {
      display: inline-flex;
      align-items: center;
      gap: 0.5rem;
+<<<<<<< HEAD
      background: var(--primary-blue, #1e24bb);
      backdrop-filter: blur(8px);
+=======
+     background: var(--peimary-blue);
+     /*backdrop-filter: blur(8px);*/
+>>>>>>> 67f6e98c334c9310fdb28cb99876721dde4996c8
      padding: 0.6rem 1.2rem;
      border-radius: 50px;
      margin-bottom: 1.5rem;
      font-size: 0.85rem;
      color: var(--white);
      font-weight: 600;
+<<<<<<< HEAD
      border: 1px solid var(--primary-blue, #1e24bb);
+=======
+     border: 1px solid blue;
+>>>>>>> 67f6e98c334c9310fdb28cb99876721dde4996c8
  }
 
  .hero-badge span {
