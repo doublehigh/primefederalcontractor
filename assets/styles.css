@@ -463,15 +463,15 @@ section.hero#home .hero-highlights {
      display: inline-flex;
      align-items: center;
      gap: 0.5rem;
-     background: rgba(255, 255, 255, 0.12);
+     background: var(--primary-blue, #1e24bb);
      backdrop-filter: blur(8px);
      padding: 0.6rem 1.2rem;
      border-radius: 50px;
      margin-bottom: 1.5rem;
      font-size: 0.85rem;
-     color: var(--primary-blue, #1e24bb);
+     color: var(--white);
      font-weight: 600;
-     border: 1px solid rgba(255, 255, 255, 0.2);
+     border: 1px solid var(--primary-blue, #1e24bb);
  }
 
  .hero-badge span {
@@ -870,8 +870,8 @@ section.hero#home .hero-highlights {
 
   .section-tag {
       display: inline-block;
-      background: rgba(0, 102, 204, 0.1);
-      color: var(--primary-blue);
+      background: var(--primary-blue);
+      color: var(--white);
       padding: 0.5rem 1rem;
       border-radius: 50px;
       font-size: 0.85rem;
@@ -885,7 +885,7 @@ section.hero#home .hero-highlights {
   .section-title {
       font-size: 2.5rem;
       font-weight: 800;
-      color: var(--text-dark);
+      color: var(--primary-blue);
       margin-bottom: 1rem;
   }
 
@@ -945,7 +945,20 @@ section.hero#home .hero-highlights {
   .myicons{
         font-size: 2rem;
   }
-
+  .icon_image {
+      font-size: 2rem;
+      width: 6rem;
+      /* 32px */
+      height: 6rem;
+      /* 32px */
+      border-radius: 30%;
+      /* Makes it perfectly round */
+      object-fit: cover;
+      /* Ensures image fills the circle without distortion */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+  }
   .feature-card:hover .feature-icon {
       background: linear-gradient(135deg, var(--primary-blue), var(--accent-gold));
       color: white;
@@ -1662,8 +1675,9 @@ section.hero#home .hero-highlights {
       position: absolute;
       bottom: 30px;
       right: -20px;
-      background: white;
+      background: var(--primary-blue);
       padding: 1.5rem;
+      color: var(--white);
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       animation: float 3s ease-in-out infinite;
@@ -1673,7 +1687,7 @@ section.hero#home .hero-highlights {
       font-size: 2rem;
       font-weight: 800;
       margin-bottom: 1.5rem;
-      color: var(--text-dark);
+      color: var(--primary-blue);
   }
 
   .about-content>p {
