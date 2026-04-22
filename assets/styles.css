@@ -2308,11 +2308,11 @@ section.hero#home .hero-highlights {
        z-index: 0;
    }
 
-        @media (max-width: 768px) {
+        /* @media (max-width: 768px) {
             .home-about::before {
                     background: rgba(10, 37, 64, 0.48);
-        }
-    }
+        } */
+    /* } */
    .home-about .home-about-copy,
    .home-about .home-about-cards {
        position: relative;
