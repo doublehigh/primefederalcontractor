@@ -570,11 +570,11 @@ section.hero#home .hero-highlights {
      align-items: center;
      gap: 0.5rem;
      transition: all 0.3s ease;
-     border: 2px solid rgba(255, 255, 255, 0.3);
+     border: 2px solid var(--primary-blue);
  }
 
  .btn-secondary:hover {
-     border-color: var(--primary-blue, #D4AF37);
+     border-color: var(--white, #D4AF37);
      color: var(--primary-blue, #D4AF37);
      transform: translateY(-3px);
  }
@@ -1781,7 +1781,33 @@ section.hero#home .hero-highlights {
   }
 
   .page-hero-about {
-      background: linear-gradient(180deg, #f4f8ff 0%, #ffffff 100%);
+      /* background: linear-gradient(180deg, #f4f8ff 0%, #ffffff 100%); */
+  }
+
+  /* Background Image - Using the section directly */
+  .page-hero-about {
+      background-image: url('./IMG-20260423-WA0007.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+  }
+
+  /* Create overlay using pseudo-element on the section */
+  .page-hero-about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 37, 64, 0.262);
+      z-index: 0;
+  }
+
+  /* Remove any existing after pseudo-element that might be causing issues */
+  .page-hero-about::after {
+      display: none;
   }
 
   .page-hero-contact {
@@ -1801,7 +1827,7 @@ section.hero#home .hero-highlights {
       font-size: clamp(2.6rem, 5vw, 4.2rem);
       line-height: 1.05;
       font-weight: 800;
-      color: var(--text-dark);
+      color: var(--primary-blue);
       margin-bottom: 1.25rem;
       letter-spacing: -0.03em;
       max-width: 13ch;
@@ -1811,7 +1837,7 @@ section.hero#home .hero-highlights {
       max-width: 60ch;
       font-size: 1.05rem;
       line-height: 1.8;
-      color: var(--text-light);
+      color: var(--white);
   }
 
   .page-hero-actions {
@@ -2302,7 +2328,7 @@ section.hero#home .hero-highlights {
   .home-about {
     position: relative;
       padding: 5.5rem 2rem;
-    background-image: url('./bussiness_colab.jpg');
+    background-image: url('./IMG-20260423-WA0007.jpg');
         background-size: cover;
         background-position: center 30%;
         background-repeat: no-repeat;
