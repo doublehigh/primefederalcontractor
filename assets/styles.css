@@ -1837,7 +1837,7 @@ section.hero#home .hero-highlights {
       max-width: 60ch;
       font-size: 1.05rem;
       line-height: 1.8;
-      color: var(--text-dark);
+      color: var(--white);
   }
 
   .page-hero-actions {
