@@ -1,0 +1,322 @@
+.service-page-hero {
+    position: relative;
+    padding: 9rem 2rem 5rem;
+    overflow: hidden;
+    color: white;
+}
+
+.service-page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(7, 22, 45, 0.86), rgba(0, 68, 153, 0.58));
+    z-index: 0;
+}
+
+.service-page-hero--cyber {
+    background: url("../assets/IT_and_cybersecurity.jpg") center/cover no-repeat;
+}
+
+.service-page-hero--professional {
+    background: url("../assets/ProfessionalServicesCareer.jpg") center/cover no-repeat;
+}
+
+.service-page-hero--facility {
+    background: url("../assets/facility_management.jpg") center/cover no-repeat;
+}
+
+.service-hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+.service-hero-copy .section-tag {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
+.service-page-title {
+    font-size: clamp(2.8rem, 5vw, 4.4rem);
+    line-height: 1.03;
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+    max-width: 12ch;
+}
+
+.service-page-subtitle {
+    max-width: 60ch;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.service-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.service-hero-actions .btn-secondary {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.service-hero-actions .btn-secondary:hover {
+    color: white;
+    border-color: white;
+}
+
+.service-hero-panel {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 28px;
+    padding: 2rem;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 24px 60px rgba(8, 22, 44, 0.24);
+}
+
+.service-hero-panel h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.service-hero-panel p {
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+}
+
+.service-mini-list {
+    display: grid;
+    gap: 0.9rem;
+    list-style: none;
+}
+
+.service-mini-list li {
+    padding: 0.95rem 1rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.service-mini-list strong {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.service-mini-list span {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.service-content-section {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, #ffffff 0%, #f3f7fd 100%);
+}
+
+.service-content-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+    gap: 2rem;
+    align-items: start;
+}
+
+.service-main-card,
+.service-side-card,
+.service-feature-card,
+.service-process-card,
+.service-cta-card {
+    background: white;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 102, 204, 0.1);
+    box-shadow: 0 20px 50px rgba(23, 46, 84, 0.08);
+}
+
+.service-main-card,
+.service-side-card,
+.service-cta-card {
+    padding: 2rem;
+}
+
+.service-main-card h2,
+.service-side-card h3,
+.service-cta-card h2 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.service-main-card p,
+.service-side-card p,
+.service-cta-card p {
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.service-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.service-feature-card {
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-feature-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.service-feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 55px rgba(0, 68, 153, 0.12);
+}
+
+.service-feature-card h3 {
+    margin-bottom: 0.6rem;
+    color: var(--primary-blue);
+    font-size: 1.05rem;
+}
+
+.service-feature-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.service-side-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 1.25rem;
+}
+
+.service-side-list,
+.service-process-list {
+    list-style: none;
+    display: grid;
+    gap: 0.85rem;
+    margin-top: 1rem;
+}
+
+.service-side-list li,
+.service-process-card {
+    padding: 1rem 1.1rem;
+    border-radius: 18px;
+    background: rgba(0, 102, 204, 0.04);
+    border: 1px solid rgba(0, 102, 204, 0.08);
+}
+
+.service-side-list li strong,
+.service-process-card strong {
+    display: block;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.service-side-list li span,
+.service-process-card span {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.service-process-section {
+    padding: 5rem 2rem;
+    background: white;
+}
+
+.service-process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.service-process-card {
+    background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+}
+
+.service-process-card strong {
+    color: var(--primary-blue);
+}
+
+.service-cta-section {
+    padding: 0 2rem 5rem;
+    background: white;
+}
+
+.service-cta-card {
+    background: linear-gradient(135deg, var(--dark-bg), #16315a);
+    color: white;
+}
+
+.service-cta-card h2,
+.service-cta-card p {
+    color: white;
+}
+
+.service-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.service-cta-card .btn-secondary {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.55);
+}
+
+.service-cta-card .btn-secondary:hover {
+    color: white;
+    border-color: white;
+}
+
+@media (max-width: 992px) {
+    .service-hero-grid,
+    .service-content-grid,
+    .service-process-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-page-hero,
+    .service-content-section,
+    .service-process-section,
+    .service-cta-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .service-page-hero {
+        padding-top: 8rem;
+        padding-bottom: 4rem;
+    }
+
+    .service-page-title {
+        max-width: none;
+        font-size: 2.4rem;
+    }
+
+    .service-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-hero-actions .btn-primary,
+    .service-hero-actions .btn-secondary,
+    .service-cta-actions .btn-primary,
+    .service-cta-actions .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+}

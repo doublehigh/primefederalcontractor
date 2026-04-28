@@ -83,32 +83,87 @@ const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 let menuOpen = false;
 
-mobileMenuBtn.addEventListener('click', () => {
-    menuOpen = !menuOpen;
+function resetMobileMenuButton() {
+    if (!mobileMenuBtn) return;
     const spans = mobileMenuBtn.querySelectorAll('span');
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+}
 
-    if (menuOpen) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-        mobileMenu.classList.add('open');
-    } else {
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
-        mobileMenu.classList.remove('open');
-    }
-});
+function closeMobileMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('open');
+    menuOpen = false;
+    resetMobileMenuButton();
+    document.querySelectorAll('.mobile-menu-group.open').forEach(group => {
+        group.classList.remove('open');
+    });
+}
+
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        menuOpen = !menuOpen;
+        const spans = mobileMenuBtn.querySelectorAll('span');
+
+        if (menuOpen) {
+            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            mobileMenu.classList.add('open');
+        } else {
+            closeMobileMenu();
+        }
+    });
+}
 
 document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        menuOpen = false;
-        const spans = mobileMenuBtn.querySelectorAll('span');
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
+        closeMobileMenu();
     });
+});
+
+document.querySelectorAll('.mobile-submenu-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+        const group = toggle.closest('.mobile-menu-group');
+        if (group) {
+            group.classList.toggle('open');
+        }
+    });
+});
+
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (event) => {
+        event.preventDefault();
+        const dropdown = toggle.closest('.nav-dropdown');
+        if (!dropdown) return;
+
+        const willOpen = !dropdown.classList.contains('open');
+        document.querySelectorAll('.nav-dropdown.open').forEach(item => {
+            if (item !== dropdown) {
+                item.classList.remove('open');
+                const otherToggle = item.querySelector('.nav-dropdown-toggle');
+                if (otherToggle) {
+                    otherToggle.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+
+        dropdown.classList.toggle('open', willOpen);
+        toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+});
+
+document.addEventListener('click', (event) => {
+    if (!event.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown.open').forEach(dropdown => {
+            dropdown.classList.remove('open');
+            const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+            if (toggle) {
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
 });
 
 // Add hover effect to cards

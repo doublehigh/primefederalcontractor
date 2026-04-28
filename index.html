@@ -7,7 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/styles.css">
+    <link rel="stylesheet" href="./style/common.css">
+    <link rel="stylesheet" href="./style/index.css">
     
      <!-- Open Graph Meta Tags for Prime Federal Contractors LLC -->
     <meta property="og:title" content="Prime Federal Contractors LLC - Government IT & Cybersecurity Solutions">
@@ -48,11 +49,21 @@
             </a>
 
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="./about.html">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="./contact.html" class="nav-cta">Contact</a></li>
+                <li class="nav-item"><a href="#home">Home</a></li>
+                <li class="nav-item"><a href="./about.html">About</a></li>
+                <li class="nav-item nav-dropdown">
+                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+                        Services
+                        <span class="nav-caret">&#9662;</span>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="./it-cybersecurity-services.html">IT &amp; Cybersecurity Services</a></li>
+                        <li><a href="./professional-services.html">Professional Services</a></li>
+                        <li><a href="./facility-management.html">Facility Management</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="#certifications">Certifications</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-cta">Contact</a></li>
             </ul>
 
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation">
@@ -66,7 +77,17 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="#home">Home</a>
         <a href="./about.html">About</a>
-        <a href="#services">Services</a>
+        <div class="mobile-menu-group">
+            <button class="mobile-submenu-toggle" type="button">
+                Services
+                <span class="nav-caret">&#9662;</span>
+            </button>
+            <div class="mobile-submenu">
+                <a href="./it-cybersecurity-services.html">IT &amp; Cybersecurity Services</a>
+                <a href="./professional-services.html">Professional Services</a>
+                <a href="./facility-management.html">Facility Management</a>
+            </div>
+        </div>
         <a href="#certifications">Certifications</a>
         <a href="./contact.html">Contact</a>
     </div>
@@ -497,6 +518,6 @@
         </div>
     </footer>
 
-    <script src="./assets/app.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 </html>
