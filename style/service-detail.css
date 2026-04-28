@@ -237,7 +237,7 @@
 
 .service-process-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1rem;
 }
 
@@ -282,14 +282,15 @@
 }
 
 @media (max-width: 992px) {
+
     .service-hero-grid,
-    .service-content-grid,
-    .service-process-grid {
+    .service-content-grid {
         grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 768px) {
+
     .service-page-hero,
     .service-content-section,
     .service-process-section,

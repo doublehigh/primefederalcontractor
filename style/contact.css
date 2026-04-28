@@ -314,7 +314,7 @@
     color: white;
     font-size: 0.95rem;
     transition: all 0.3s ease;
-    font-family: "Inter", sans-serif;
+    font-family: "Public Sans", sans-serif;
 }
 
 .form-group input::placeholder,
