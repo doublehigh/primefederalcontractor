@@ -596,7 +596,7 @@ section.hero#home .hero-highlights {
 
 .compliance-standards {
     background-image:
-        linear-gradient(180deg, rgba(8, 28, 52, 0.84), rgba(8, 28, 52, 0.68)),
+        linear-gradient(180deg, rgba(8, 28, 52, 0.531), rgba(8, 28, 52, 0.505)),
         url("../assets/Relevant Frameworks.webp");
     background-size: cover;
     background-position: center;
@@ -756,7 +756,7 @@ section.hero#home .hero-highlights {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(10, 37, 64, 0.334);
+    background: rgba(10, 37, 64, 0);
     z-index: 0;
 }
 
@@ -898,7 +898,7 @@ section.hero#home .hero-highlights {
 .home-about {
     padding: 5.5rem 2rem;
     background-image:
-        linear-gradient(90deg, rgba(8, 28, 52, 0.82), rgba(8, 28, 52, 0.58)),
+        linear-gradient(90deg, rgba(8, 28, 52, 0.558), rgba(8, 28, 52, 0.456)),
         url("../assets/Company Overview.png");
     background-size: cover;
     background-position: center;
@@ -996,7 +996,7 @@ section.hero#home .hero-highlights {
 .who-we-serve {
     padding: 6rem 2rem;
     background-image:
-        linear-gradient(180deg, rgba(8, 28, 52, 0.78), rgba(8, 28, 52, 0.62)),
+        linear-gradient(180deg, rgba(8, 28, 52, 0.479), rgba(8, 28, 52, 0.448)),
         url("../assets/Who We Serve.webp");
     background-size: cover;
     background-position: center;
