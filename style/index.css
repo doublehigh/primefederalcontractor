@@ -596,7 +596,7 @@ section.hero#home .hero-highlights {
 
 .compliance-standards {
     background-image:
-        linear-gradient(180deg, rgba(8, 28, 52, 0.531), rgba(8, 28, 52, 0.505)),
+        linear-gradient(180deg, rgba(8, 28, 52, 0.601), rgba(8, 28, 52, 0.553)),
         url("../assets/Relevant Frameworks.webp");
     background-size: cover;
     background-position: center;
@@ -658,13 +658,13 @@ section.hero#home .hero-highlights {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.295);
+    background: rgba(255, 255, 255, 0.514);
     border-radius: 10px;
     transition: all 0.3s ease;
 }
 
 .standard-item:hover {
-    background: white;
+    /* background: white; */
     transform: translateX(10px);
 }
 
@@ -676,7 +676,7 @@ section.hero#home .hero-highlights {
 
 .standard-desc {
     font-size: 0.9rem;
-    color: var(--white);
+    color: var(--dark-bg);
     text-align: right;
 }
 
