@@ -47,7 +47,7 @@
     font-size: clamp(2.6rem, 5vw, 4.2rem);
     line-height: 1.05;
     font-weight: 800;
-    color: var(--primary-blue);
+    color: var(--white);
     margin-bottom: 1.25rem;
     letter-spacing: -0.03em;
     max-width: 13ch;
@@ -315,6 +315,7 @@
 }
 
 @media (max-width: 992px) {
+
     .page-hero-grid,
     .story-grid,
     .capability-band-grid {

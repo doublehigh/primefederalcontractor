@@ -22,7 +22,7 @@
 }
 
 .service-page-hero--facility {
-    background: url("../assets/facility_management.jpg") center/cover no-repeat;
+    background: url("../assets/Facility Management.webp") center/cover no-repeat;
 }
 
 .service-hero-grid {
@@ -161,6 +161,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
     margin-top: 1.5rem;
+    padding: .5rem;
 }
 
 .service-feature-card {
@@ -295,8 +296,8 @@
     .service-content-section,
     .service-process-section,
     .service-cta-section {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding-left: .5rem;
+        padding-right: .5rem;
     }
 
     .service-page-hero {
@@ -311,6 +312,7 @@
 
     .service-feature-grid {
         grid-template-columns: 1fr;
+        padding: .5rem;
     }
 
     .service-hero-actions .btn-primary,
